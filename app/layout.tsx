@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/context/ThemeProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "DevFlow",
   description:
-    "DevFlow is a platform for developers to share their knowledge and learn from others.",
+    "A community-driven platform for asking and answering programming questions. Get help and help others!",
   icons: {
     icon: "/assets/images/site-logo.svg",
   },
@@ -29,14 +29,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         <ClerkProvider
           appearance={{
             elements: {
-              formButtonPrimary: "primary-gradient !shadow-none",
+              formButtonPrimary: "primary-gradient",
               footerActionLink: "primary-text-gradient hover:text-primary-500",
             },
           }}
